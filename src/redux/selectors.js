@@ -11,7 +11,6 @@ export const selectStatusFilter = (state) => state.filters.status;
 export const selectVisibleTasks = createSelector(
   [selectTasks, selectStatusFilter],
   (tasks, statusFilter) => {
-    console.log("Calculating visible tasks. Now memoized!");
 
     switch (statusFilter) {
       case "active":
@@ -24,23 +23,7 @@ export const selectVisibleTasks = createSelector(
   }
 );
 
-// export const selectVisibleTasks = (state) => {
-//   const tasks = selectTasks(state);
-
-//   const statusFilter = selectStatusFilter(state);
-
-//   switch (statusFilter) {
-//     case "active":
-//       return tasks.filter((task) => !task.completed);
-//     case "completed":
-//       return tasks.filter((task) => task.completed);
-//     default:
-//       return tasks;
-//   }
-// };
-
 export const selectTaskCount = createSelector([selectTasks], (tasks) => {
-  console.log("Calculating task count. Now memoized!");
 
   return tasks.reduce(
     (count, task) => {
@@ -54,19 +37,3 @@ export const selectTaskCount = createSelector([selectTasks], (tasks) => {
     { active: 0, completed: 0 }
   );
 });
-
-// export const selectTaskCount = (state) => {
-//   const tasks = selectTasks(state);
-
-//   return tasks.reduce(
-//     (count, task) => {
-//       if (task.completed) {
-//         count.completed += 1;
-//       } else {
-//         count.active += 1;
-//       }
-//       return count;
-//     },
-//     { active: 0, completed: 0 }
-//   );
-// };

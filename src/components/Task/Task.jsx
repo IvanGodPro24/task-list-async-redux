@@ -3,7 +3,6 @@ import css from "./Task.module.css";
 
 import { useDispatch } from "react-redux";
 import { deleteTask, toggleCompleted } from "../../redux/operations";
-// import { deleteTask, toggleCompleted } from "../../redux/tasksSlice";
 
 export const Task = ({ task }) => {
   const dispatch = useDispatch();

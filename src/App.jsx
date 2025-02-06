@@ -14,7 +14,6 @@ export const App = () => {
 
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  // const { isLoading, error } = useSelector((state) => state.tasks);
 
   useEffect(() => {
     dispatch(fetchTasks());
@@ -27,7 +26,6 @@ export const App = () => {
 
       {isLoading && <Loader />}
       {error && <p>{error}</p>}
-      {/* <p>{items.length > 0 && JSON.stringify(items, null, 2)}</p> */}
       <TaskList />
     </Layout>
   );

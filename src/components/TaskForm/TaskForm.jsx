@@ -1,4 +1,3 @@
-// import { addTask } from "../../redux/tasksSlice";
 import { Button } from "../Button/Button";
 import css from "./TaskForm.module.css";
 
@@ -13,13 +12,6 @@ export const TaskForm = () => {
     const form = event.target;
 
     dispatch(addTask(form.elements.text.value))
-    // dispatch(
-    //   addTask({
-    //     id: crypto.randomUUID(),
-    //     text: form.elements.text.value,
-    //     completed: false,
-    //   })
-    // );
 
     form.reset();
   };
