@@ -2,10 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../Button/Button";
 import css from "./StatusFilter.module.css";
 import { setStatusFilter } from "../../redux/filtersSlice";
+import { selectStatusFilter } from "../../redux/selectors";
 
 export const StatusFilter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector((state) => state.filters.status);
+
+  const filter = useSelector(selectStatusFilter)
+  // const filter = useSelector((state) => state.filters.status);
 
   const handleFilterChange = (filter) => dispatch(setStatusFilter(filter));
 

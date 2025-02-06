@@ -7,11 +7,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTasks } from "./redux/operations";
 import Loader from "./components/Loader/Loader";
+import { selectError, selectIsLoading } from "./redux/selectors";
 
 export const App = () => {
   const dispatch = useDispatch();
 
-  const { isLoading, error } = useSelector((state) => state.tasks);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
+  // const { isLoading, error } = useSelector((state) => state.tasks);
 
   useEffect(() => {
     dispatch(fetchTasks());
